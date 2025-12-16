@@ -15,6 +15,7 @@ import com.example.learningapp.net.PingResultAdapter
 class MainActivity : AppCompatActivity(), PingResultListener {
 
     private lateinit var pingButton: Button
+    private lateinit var clearButton: Button
     private lateinit var ipTextBox: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PingResultAdapter
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), PingResultListener {
         setContentView(R.layout.activity_main)
 
         pingButton = findViewById(R.id.pingButton)
+        clearButton = findViewById(R.id.clearButton)
         ipTextBox = findViewById(R.id.textInputEditText)
         recyclerView = findViewById(R.id.pingRecyclerView)
 
@@ -49,6 +51,9 @@ class MainActivity : AppCompatActivity(), PingResultListener {
                 pingButton.text = "Start Ping"
             }
 
+        }
+        clearButton.setOnClickListener{
+            adapter.clearResults()
         }
     }
 

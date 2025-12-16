@@ -1,5 +1,6 @@
 package com.example.learningapp.net
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -38,5 +39,10 @@ class PingResultAdapter (
         results.add(result)
         Log.d("PingAdapter", "Added: ${result.ip}, total items: ${results.size}")
         notifyItemInserted(results.size - 1)
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun clearResults() {
+        results.clear()
+        notifyDataSetChanged()
     }
 }
